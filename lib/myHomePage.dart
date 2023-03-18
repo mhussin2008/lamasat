@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 import 'privacy_text.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -121,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
             'كتاب اللمسات الندية فى الدرة المضية',
         textAlign: TextAlign.right
           ,
+          softWrap: false,
         ),
         actions: [
           IconButton(
@@ -134,7 +137,23 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               icon: Icon(Icons.privacy_tip)),
           IconButton(
-              onPressed: ()    {
+              onPressed: ()   async {
+                await Clipboard.setData(ClipboardData(text: url));
+
+                Fluttertoast.showToast(
+                    msg: "تم نسخ عنوان قائمة فيديوهات الشرح للحافظة",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
+
+               Future.delayed(const Duration(milliseconds: 2500), () {});
+
+                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                //   content: Text("تم نسخ عنوان قائمة فيديوهات الشرح للحافظة"),
+                // ));
 
                   try {launchUrl(myUri);
                     }
