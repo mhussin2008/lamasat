@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'privacy_text.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -10,6 +11,9 @@ class MyHomePage extends StatefulWidget {
 //--------------------------------------------------------------------------
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  String url = 'https://www.youtube.com/playlist?list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv';
+  late Uri myUri=Uri.parse(url);
   int _counter = 1;
   String jpg = '001';
   String zeros = '';
@@ -128,7 +132,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
               },
-              icon: Icon(Icons.privacy_tip))
+              icon: Icon(Icons.privacy_tip)),
+          IconButton(
+              onPressed: ()    {
+
+                  try {launchUrl(myUri);
+                    }
+                    catch (e){
+                    print('error   $e');
+                    }
+               // } else {
+               // print( 'Could not launch $url');
+               // }
+
+                //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+              },
+              icon: Image.asset('assets/icons/ypf.png') )
         ],
       ),
       drawer: SafeArea(
@@ -184,4 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     // This trailing comma makes auto-formatting nicer for build methods.
   }
+
+
+
 }
