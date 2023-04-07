@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.nadanewsoft.lamasat" "\0"
-            VALUE "FileDescription", "lamasat_dorrah" "\0"
+            VALUE "FileDescription", "اللمسات الندية" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "lamasat_dorrah" "\0"
+            VALUE "InternalName", "اللمسات الندية" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.nadanewsoft.lamasat. All rights reserved." "\0"
             VALUE "OriginalFilename", "lamasat_dorrah.exe" "\0"
-            VALUE "ProductName", "lamasat_dorrah" "\0"
+            VALUE "ProductName", "اللمسات الندية" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

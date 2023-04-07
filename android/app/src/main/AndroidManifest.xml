@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nadanewsoft.lamasat.lamasat_dorrah">
    <application
-        android:label="lamasat_dorrah"
+        android:label="اللمسات الندية"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

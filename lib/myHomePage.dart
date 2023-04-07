@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -117,57 +119,64 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-            'كتاب اللمسات الندية فى الدرة المضية',
-        textAlign: TextAlign.right
-          ,
-          softWrap: false,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70.0),
+        child: AppBar(
+          centerTitle: true,
+          title:  const Text(
+              'كتاب اللمسات الندية \n فى الدرة المضية',
+          textAlign: TextAlign.center,
+
+            softWrap: true,
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    privacy = !privacy;
+                    print(privacy);
+                  });
+
+                  //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+                },
+                icon: const Icon(Icons.privacy_tip)),
+            IconButton(
+                onPressed: ()   async {
+                  await Clipboard.setData(ClipboardData(text: url));
+
+                  Fluttertoast.showToast(
+                      msg: "تم نسخ عنوان قائمة فيديوهات الشرح للحافظة",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                  );
+
+                 //Future.delayed(const Duration(milliseconds: 2500), () {});
+
+                  // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  //   content: Text("تم نسخ عنوان قائمة فيديوهات الشرح للحافظة"),
+                  // ));
+
+
+                 // } else {
+                 // print( 'Could not launch $url');
+                 // }
+
+                  //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+                },
+                icon: const Icon(Icons.copy) ),
+
+            IconButton(
+                onPressed: () {
+                  _launchUrl();
+                  //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+                },
+                icon:Image.asset('assets/icons/ypf.png')
+    ),
+          ],
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                setState(() {
-                  privacy = !privacy;
-                  print(privacy);
-                });
-
-                //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
-              },
-              icon: Icon(Icons.privacy_tip)),
-          IconButton(
-              onPressed: ()   async {
-                await Clipboard.setData(ClipboardData(text: url));
-
-                Fluttertoast.showToast(
-                    msg: "تم نسخ عنوان قائمة فيديوهات الشرح للحافظة",
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.CENTER,
-                    timeInSecForIosWeb: 1,
-                    textColor: Colors.white,
-                    fontSize: 16.0
-                );
-
-               Future.delayed(const Duration(milliseconds: 2500), () {});
-
-                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                //   content: Text("تم نسخ عنوان قائمة فيديوهات الشرح للحافظة"),
-                // ));
-
-                  try {launchUrl(myUri);
-                    }
-                    catch (e){
-                    print('error   $e');
-                    }
-               // } else {
-               // print( 'Could not launch $url');
-               // }
-
-                //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
-              },
-              icon: Image.asset('assets/icons/ypf.png') )
-        ],
       ),
       drawer: SafeArea(
         child: Drawer(
@@ -216,11 +225,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   _incrementCounter();
                 }
               },
-              child: Center(child: Image.asset('assets/pages/lamasat-page-' + jpg + '.jpg')),
+              child: InteractiveViewer(
+                maxScale: 5,
+
+                  child: Center(child: Image.asset('assets/pages/lamasat-page-' + jpg + '.jpg'))),
             )
           : SingleChildScrollView(child: Text(privacy_text)),
     );
     // This trailing comma makes auto-formatting nicer for build methods.
+  }
+
+  Future<void> _launchUrl() async {
+    print('started launching youtube');
+    if (!await launchUrl(myUri)) {
+      throw Exception('Could not launch $myUri');
+    }
+
   }
 
 
