@@ -17,7 +17,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   String url = 'https://www.youtube.com/playlist?list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv';
+  String Privacyurl='https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md';
   late Uri myUri=Uri.parse(url);
+  late Uri myPrivacyUri=Uri.parse(Privacyurl);
   int _counter = 1;
   String jpg = '001';
   String zeros = '';
@@ -133,13 +135,23 @@ class _MyHomePageState extends State<MyHomePage> {
             IconButton(
                 onPressed: () {
                   setState(() {
-                    privacy = !privacy;
-                    print(privacy);
+                    _launchPrivacyUrl();
                   });
 
-                  //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+
                 },
                 icon: const Icon(Icons.privacy_tip)),
+            // IconButton(
+            //     onPressed: () {
+            //       setState(() {
+            //         privacy = !privacy;
+            //         print(privacy);
+            //       });
+            //
+            //       //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
+            //     },
+            //     icon: const Icon(Icons.privacy_tip)),
+
             IconButton(
                 onPressed: ()   async {
                   await Clipboard.setData(ClipboardData(text: url));
@@ -238,6 +250,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _launchUrl() async {
     print('started launching youtube');
     if (!await launchUrl(myUri)) {
+      throw Exception('Could not launch $myUri');
+    }
+
+  }
+
+  Future<void> _launchPrivacyUrl() async {
+    print('Privacy Policy');
+    if (!await launchUrl(myPrivacyUri)) {
       throw Exception('Could not launch $myUri');
     }
 
