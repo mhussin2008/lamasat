@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -169,11 +170,14 @@ class _MyHomePageState extends State<MyHomePage> {
         preferredSize: const Size.fromHeight(70.0),
         child: AppBar(
           centerTitle: true,
-          title:  const Text(
-              'كتاب اللمسات الندية \n فى الدرة المضية',
-          textAlign: TextAlign.center,
+          title:  Center(
+            child: const Text(
+                'اللمسات الندية',
+            style: TextStyle(fontSize: 24,),
+            textAlign: TextAlign.center,
 
-            softWrap: true,
+              softWrap: true,
+            ),
           ),
           actions: [
             IconButton(
