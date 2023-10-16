@@ -34,9 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     myIndex = [
-      'مقدمة المؤلف',
+      'تقريظ أ. ياسر السمرى',
+          'تقريظ د. محمد فؤاد عبدالمجيد',
+          'تقريظ أ.د. عبدالقيوم السندى',
+          'مقدمة المؤلف',
           'مدخل لدراسة الدرة',
-          'الأوجه المقدمة في الأداء',
+          'فصل فى الأوجه المقدمة في الأداء',
+          'فصل فيما زادته الدرة على الشاطبية',
           'مقدمة النظم',
           'باب البسملة وأم القرآن',
           'الإدغام الكبير',
@@ -50,41 +54,81 @@ class _MyHomePageState extends State<MyHomePage> {
           'الإدغام الصفير',
           'النون الساكنة والتنوين',
           'الفتح والإمالة',
-          'الراء ات واللامات والوقف على المرسوم',
+          'الراءات واللامات والوقف على المرسوم',
           'ياءات الإضافة',
           'الياءات الزوائد',
-          'فرش سورة البقرة',
+          'باب فرش الحروف :فرش سورة البقرة',
           'فرش سورة آل عمران',
           'فرش سورة النساء',
           'فرش سورة المائدة',
+          'سورة الأنعام',
+          'سورة الأعراف والأنفال',
+          'سورة التوبة ويونس وهود عليهما السلام',
+          'سورة يوسف-عليه السلام- والرعد',
+          'ومن سورة إبراهيم-عليه السلام-إلى سورة الكهف',
+          'سورة الكهف',
+          'ومن سورة مريم-عليها السلام-إلى سورة الفرقان',
+          'ومن سورة الفرقان إلى سورة الروم',
+          'سورة الروم ولقمان -عليه السلام- والسجدة',
+          'سورة الأحزاب وسبأو فاطر',
+          'سورة يس-عليه السلام -والصافات',
+          'ومن سورة ص إلى سورة الأحقاف',
+          'ومن سورة الأحقاف إلى سورة الرحمن',
+          'ومن سورة الرحمن إلى سورة الإمتحان',
+          'ومن سورة الإمتحان إلى سورة الجن',
+          'ومن سورة الجن إلى سورة المرسلات',
+          'ومن سورة المرسلات إلى سورة الغاشية',
+          'ومن سورة الغاشية إلى آخر القرآن',
           'المراجع'
 
     ];
     pageNum = [
-      7,
-      8,
-      19,
-      25,
-      48,
-      68,
-      82,
-      95,
-      98,
+      9,
+      10,
       11,
-      118,
-      124,
-      149,
-      164,
-      182,
-      184,
-      195,
-      213,
-      226,
-      249,
-      337,
-      336,
-      377,
-      388
+      13,
+      14,
+      24,
+      30,
+      58,
+      80,
+      100,
+      114,
+      126,
+      129,
+      141,
+      148,
+      154,
+      179,
+      194,
+      210,
+      212,
+      222,
+      240,
+      253,
+      275,
+      356,
+      378,
+      395,
+      405,
+      430,
+      457,
+      486,
+      491,
+      512,
+      524,
+      559,
+      576,
+      584,
+      599,
+      614,
+      635,
+      647,
+      657,
+      663,
+      673,
+      683,
+      697
     ];
   }
 
@@ -99,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() {
-    if (_counter >= 390) {
+    if (_counter >= 699) {
       return;
     }
     setState(() {
@@ -199,30 +243,33 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(0),
                 itemCount: myIndex.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          children: [
-                            Text(' ${pageNum[index]}'),
-                            Expanded(
-                                child: SizedBox(
-                                    child: Text(
-                              myIndex[index],
-                              textAlign: TextAlign.right,
-                            ))),
-                            //
-                          ],
+                  return Container(
+                    height: 30,
+                    child: ListTile(
+                        title: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Row(
+                            children: [
+                              Text(' ${pageNum[index]}'),
+                              Expanded(
+                                  child: SizedBox(
+                                     child: Text(
+                                myIndex[index],
+                                textAlign: TextAlign.right,
+                              ))),
+                              //
+                            ],
+                          ),
                         ),
-                      ),
-                      onTap: () {
-                        setState(() {
-                          _counter = pageNum[index] + 1;
-                          privacy = true;
-                          _makeFileName();
-                        });
-                        Navigator.pop(context);
-                      });
+                        onTap: () {
+                          setState(() {
+                            _counter = pageNum[index] + 0;//+1
+                            privacy = true;
+                            _makeFileName();
+                          });
+                          Navigator.pop(context);
+                        }),
+                  );
                 })),
       ),
       // appBar: AppBar(title: Text(widget.title), ),
