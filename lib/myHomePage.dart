@@ -240,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: InteractiveViewer(
                 maxScale: 5,
 
-                  child: Center(child: Image.asset('assets/pages/lamasat-page-' + jpg + '.jpg'))),
+                  child: Center(child: Image.asset('assets/lamasat/lamasat-' + jpg + '.jpg'))),
             )
           : SingleChildScrollView(child: Text(privacy_text)),
     );
