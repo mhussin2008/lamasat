@@ -1,11 +1,11 @@
 import 'dart:core';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
 import 'privacy_text.dart';
+import 'videoList.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -26,6 +26,9 @@ class _MyHomePageState extends State<MyHomePage> {
   String zeros = '';
   int temp = 0;
   List<String> myIndex = [''];
+  //List<String> myVideoIndex = [''];
+  //String myVideoListUrl='https://www.youtube.com/watch?v=aOZYPsJLkU0&list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv&index=';
+
   List<int> pageNum = [0];
   bool privacy = true;
 
@@ -33,6 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    // myVideoIndex=[
+    // 'https://www.youtube.com/watch?v=aOZYPsJLkU0&list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv&index=1',
+    //   'https://www.youtube.com/watch?v=aOZYPsJLkU0&list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv&index=2'
+    //
+    //
+    // ];
 
     myIndex = [
       'تقريظ أ. ياسر السمرى',
@@ -82,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'ومن سورة الغاشية إلى آخر القرآن',
           'المراجع'
 
+
     ];
     pageNum = [
       9,
@@ -130,6 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
       673,
       683,
       697
+
     ];
   }
 
@@ -230,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             IconButton(
                 onPressed: () {
-                  _launchUrl();
+                  _launchUrl(myUri);
                   //launchUrl(Uri(path:'https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md'));
                 },
                 icon:Image.asset('assets/icons/ypf.png')
@@ -248,7 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: myIndex.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    height: 30,
+                    height: 40,
                     child: ListTile(
                         title: Padding(
                           padding: const EdgeInsets.all(2.0),
@@ -260,8 +272,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                      child: Text(
                                 myIndex[index],
                                 textAlign: TextAlign.right,
-                              ))),
-                              //
+                              )
+                                  )
+                              ),
+                              index>3?IconButton(onPressed: (){
+
+                               ///// here
+                                String temp='${myVideoList[index-3]}';
+                                print(temp);
+                                _launchUrl(Uri.parse(temp));
+                              }, icon: Image.asset('assets/icons/youtube.png')
+                              ):SizedBox()//
                             ],
                           ),
                         ),
@@ -291,16 +312,16 @@ class _MyHomePageState extends State<MyHomePage> {
               child: InteractiveViewer(
                 maxScale: 5,
 
-                  child: Center(child: Image.asset('assets/lamasat/lamasat-' + jpg + '.jpg'))),
+                  child: Center(child: Image.asset('assets/lamasat/lamasat-' + jpg +' '+ '.jpg'))),
             )
           : SingleChildScrollView(child: Text(privacy_text)),
     );
     // This trailing comma makes auto-formatting nicer for build methods.
   }
 
-  Future<void> _launchUrl() async {
+  Future<void> _launchUrl(Uri parse) async {
     print('started launching youtube');
-    if (!await launchUrl(myUri)) {
+    if (!await launchUrl(parse)) {
       throw Exception('Could not launch $myUri');
     }
 
