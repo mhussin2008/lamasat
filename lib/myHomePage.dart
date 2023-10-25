@@ -162,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: myIndex.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    height: 40,
+                    height: 50,
                     child: ListTile(
                         title: Padding(
                           padding: const EdgeInsets.all(2.0),
@@ -171,13 +171,18 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(' ${pageNum[index]}'),
                               Expanded(
                                   child: SizedBox(
+
                                      child: Text(
+                                       softWrap: true,
                                 myIndex[index],
                                 textAlign: TextAlign.right,
                               )
                                   )
                               ),
-                              index>3 && index<56 ?IconButton(onPressed: (){
+                              index>3 && index<56 ?IconButton(
+                                alignment: Alignment.topRight,
+                                  iconSize: 10,
+                                  onPressed: (){
 
                                ///// here
                                 String temp='${myVideoList[index-3]}';
