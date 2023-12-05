@@ -1,3 +1,7 @@
+// https://www.freeprivacypolicy.com/live/5bc098fb-a590-462b-8df3-d0d0e7c60597
+
+
+
 String privacy_text='''Privacy Policy
 Introduction
 Our privacy policy will help you understand what information we collect at nadanewsoft, how nadanewsoft uses it, and what choices you have. nadanewsoft/hosarystartstop built the [com.nadanewsoft.hosary_waqf_ibtida] app as a free app. This SERVICE is provided by [m.hussin2013@gmail.com] at no cost and is intended for use as is. If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
