@@ -18,7 +18,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   String url = 'https://www.youtube.com/playlist?list=PLo_bzJr12Ms5Ikr5mRUZHfey4Jg-HsOcv';
-  String Privacyurl='https://github.com/mhussin2008/mohamed-privacy/blob/main/privacy-policy.md';
+  String Privacyurl='https://www.freeprivacypolicy.com/live/5bc098fb-a590-462b-8df3-d0d0e7c60597';
   late Uri myUri=Uri.parse(url);
   late Uri myPrivacyUri=Uri.parse(Privacyurl);
   int _counter = 1;
