@@ -8,7 +8,8 @@ List<String> myIndex = [
 //'فصل فى الأوجه المقدمة في الأداء',
 //'فصل فيما زادته الدرة على الشاطبية',
 'مقدمة النظم',
-'باب البسملة وأم القرآن',
+'باب البسملة وأم القرآن-1',
+  'باب البسملة وأم القرآن-2',
 'الإدغام الكبير',
 'هاء الكناية',
 'المد والقصر',
@@ -18,15 +19,16 @@ List<String> myIndex = [
 'الهمز المفرد 1',
 'الهمز المفرد 2',
 'النقل والسكت والوقف على الهمز',
-'الإدغام الصفير 1',
-  'الإدغام الصفير 2',
+ // 'النقل والسكت والوقف على الهمز-2',
+'الإدغام الصفير ',
+
 'النون الساكنة والتنوين',
 'الفتح والإمالة',
-'الراءات واللامات والوقف على المرسوم-1',
-  ' الراءات واللامات والوقف على المرسوم-2',
+'الراءات واللامات والوقف على المرسوم-1',//LGQYof0_fgk
+
 'ياءات الإضافة',
-'الياءات الزوائد-1',
-  'الياءات الزوائد-2',
+'الياءات الزوائد',
+  // 'الياءات الزوائد-2',
 'باب فرش الحروف :فرش سورة البقرة-1',
   'سورة البقرة -2',
   'سورة البقرة -3',
@@ -86,6 +88,7 @@ List<int> pageNum = [
   13,
   20,
   37,
+  37,
   52,
   62,
   71,
@@ -95,13 +98,10 @@ List<int> pageNum = [
   91,
   110,
   122,
-  122,
   135,
   137,
   146,
-  146,
   162,
-  171,
   171,
   187,
   187,
@@ -218,25 +218,29 @@ List<String> myVideoList=[
 'https://youtu.be/jmTsi0LT5k8',
 'https://youtu.be/YZwn7niNGEk',
 'https://youtu.be/fqVDeu-Qgo0',
-'https://youtu.be/cV0ZqZe7Vss',
+//'https://youtu.be/cV0ZqZe7Vss',//الاستفهام المكرر
 'https://youtu.be/RYq_kMo-Ues',
 'https://youtu.be/135yzuL8J8o',
 'https://youtu.be/Mrd3wbnkgeo',
 'https://youtu.be/Kk5xy4AUqVY',
-  'https://youtu.be/uri5-hVnOso?si=TEoT7oam8FAqYYx5',
-  'https://youtu.be/SZTFoAE9CS0?si=EoD0PqatZ_EuRcq6',
 
-'https://youtu.be/lG7TmAVRbOU?si=R4_sJOzu9zYYb-fe',
+  'https://youtu.be/SZTFoAE9CS0?si=EoD0PqatZ_EuRcq6',//adgham sagheer
+
+'https://youtu.be/lG7TmAVRbOU?si=R4_sJOzu9zYYb-fe',// noon sakna
+  'https://www.youtube.com/watch?v=LGQYof0_fgk',//fath emala
 
 //'https://youtu.be/SZTFoAE9CS0',
 //'https://youtu.be/lG7TmAVRbOU',
-'https://youtu.be/LGQYof0_fgk',
-'https://youtu.be/-yNSUtXwU2U',
-'https://youtu.be/eUTco5YXScU',
-'https://youtu.be/ppbx6oMteeI',
-'https://youtu.be/itpb-TgIlOc',
-'https://youtu.be/B_4-tdnDBk4',
-'https://youtu.be/7625SAjDtjI',
+'https://youtu.be/LGQYof0_fgk',//raaat lamat
+  'https://youtu.be/ppbx6oMteeI',//yaat edafa
+ 'https://www.youtube.com/watch?v=itpb-TgIlOc',// yaa aat zawayed
+//   'https://youtu.be/uri5-hVnOso?si=TEoT7oam8FAqYYx5',//edgham sagher
+// 'https://youtu.be/-yNSUtXwU2U',
+// 'https://youtu.be/eUTco5YXScU',//raat lamat
+//
+// 'https://youtu.be/itpb-TgIlOc',
+// 'https://youtu.be/B_4-tdnDBk4',
+'https://youtu.be/7625SAjDtjI',// bakara 1
 'https://youtu.be/EBvdHa85-9A',
 'https://youtu.be/_u-IrpTwj8k',
 'https://youtu.be/1Bx3s3UN2Xs',

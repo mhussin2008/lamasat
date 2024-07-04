@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() {
-    if (_counter >= 699) {
+    if (_counter >= 550) {
       return;
     }
     setState(() {
@@ -179,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               )
                                   )
                               ),
-                              index>3 && index<56 ?IconButton(
+                              index>4 && index<49 ?IconButton(
                                 alignment: Alignment.topRight,
                                   iconSize: 10,
                                   onPressed: (){
@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: InteractiveViewer(
                 maxScale: 5,
 
-                  child: Center(child: Image.asset('assets/lamasat/lamasat-' + jpg +' '+ '.jpg'))),
+                  child: Center(child: Image.asset('assets/lamasat5/lamasat-' + jpg + '.jpg'))),
             )
           : SingleChildScrollView(child: Text(privacy_text)),
     );
